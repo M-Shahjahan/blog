@@ -23,8 +23,6 @@ function getData($data){
     echo "<td>".$data['postAuthor']."</td>";
     echo "<td>".$data['postCreatedOn']."</td>";
     echo "<td>".$data['postUpdatedOn']."</td>";
-    //echo "<td>".$data['postDescription']."</td>";
-    //echo "<td>".$data['postContent']."</td>";
     getImage($data['postImage']);
     EditAndDelete($data['postID']);
 }

@@ -23,8 +23,12 @@ if($_SESSION["authenticated"]==false){
             $created=date("Y/m/d");
             $title=$_POST['postTitle'];
             $author=$_SESSION['author'];
-            $desc=$_POST['postDescription'];
+            $desc="";
             $content=$_POST['postContent'];
+            for($index=0;$index<100;$index++){
+                $desc=$desc.$content[$index];
+            }
+            $desc=$desc.".......";
             $image=$_POST['postImage'];
             $sql =$conn->prepare("SELECT NVL(MAX(postID),0)+1 FROM Post");
             $sql->execute();
@@ -63,15 +67,6 @@ if($_SESSION["authenticated"]==false){
                     </tr>
                     <tr>
                         <th>
-                            Post Description
-                        </th>
-                        <td>
-                        <textarea name="postDescription" rows="4" cols="50">
-                        </textarea>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
                             Post Content
                         </th>
                         <td>
@@ -95,5 +90,9 @@ if($_SESSION["authenticated"]==false){
 
             </table>
         </div>
+        <script src="../ckeditor/ckeditor.js"></script>
+        <script>
+            CKEDITOR.replace('postContent');
+        </script>
     </body>
 </html>

@@ -19,7 +19,13 @@ function updateForm($data){
     echo "Post Image</th><td><input type='text' name='image' value='$value'></td></tr>";
     echo "<tr><td>";
     echo "<input type='submit' value='Update'></td></tr>";
-    echo "</form></table>";
+    echo "</form>
+    <script src='ckeditor/ckeditor.js'></script>
+    <script>
+        CKEDITOR.replace('content');
+        CKEDITOR.replace('description');
+    </script>
+    </table>";
 }
 function option($value){
     return "<option value='".$value."'>".$value."</option>";

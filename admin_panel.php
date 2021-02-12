@@ -7,6 +7,17 @@ if($_SESSION["authenticated"]==false){
 }
 include "config.php";
 include "functions.php";
+$conn=openConnection();
+$sql =$conn->prepare("SELECT COUNT(*) FROM Post");
+$sql->execute();
+$totalNumberOfPages=$sql->fetchColumn();
+$limit = 3;
+if(isset($_GET['page'])){
+    $offset=($_GET['page']-1)*$limit;
+}
+else{
+    $offset=0;
+}
 ?>
 <html>
 <link rel="stylesheet" href="css/style.css">
@@ -110,10 +121,12 @@ Admin Panel
             <th colspan='2'>Operations</th>
             </tr>";
             $result=$stmt->setFetchMode(PDO::FETCH_ASSOC);
+            $rows = $stmt->rowCount();
             foreach ($stmt->fetchAll() as $key => $value) {
                 getData($value);
             }
-            echo "</table></div>";        
+            echo "</table>";
+            echo "</div>";        
 
         }
         closeConnection($conn);
@@ -138,18 +151,23 @@ Admin Panel
             <th colspan='2'>Operations</th>
             </tr>";        
             $conn=openConnection();
-            $sql="SELECT * FROM POST";
+            $sql="SELECT * FROM POST LIMIT $limit OFFSET $offset";
             $stmt = $conn->prepare($sql);
             $stmt->execute();
             $result=$stmt->setFetchMode(PDO::FETCH_ASSOC);
             foreach ($stmt->fetchAll() as $key => $value) {
                 getData($value);
             }
+
             closeConnection($conn);
+            echo "</table><br><br><div>";
+            for($i=1;$i<=ceil($totalNumberOfPages/$limit);$i++){
+                echo "<a href='admin_panel.php?page=$i'>$i</a>&nbsp";
+            }
+            echo "</div>";
         }
         ?>
-            
-       </table>
+       
     </div>
 </body>
 </html>
