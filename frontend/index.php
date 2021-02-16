@@ -1,3 +1,8 @@
+<?php
+session_start();
+include "../config.php";
+include "../functions.php";
+?>
 <html>
 <head>
 <title>
@@ -21,6 +26,19 @@ Welcome ! Main Page
         </form>
 
     </div>
+</div>
+<div class="row">
+    <?php
+    $conn=openConnection();
+    $sql = "SELECT * FROM post";
+    $stmt = $conn->prepare($sql);
+    if($stmt->execute()){
+        foreach ($stmt->fetchAll() as $key => $value) {
+            postCard($value);
+        }
+    }
+    closeConnection($conn);
+    ?>
 </div>
 </body>
 </html>
