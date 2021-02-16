@@ -13,7 +13,7 @@ function updateForm($data){
     echo "Post Description</th><td><textarea name='description' cols='50' rows='4' >$value</textarea></td></tr>";
     echo "<tr><th>";
     $value=$data['postContent'];
-    echo "Post Author</th><td><textarea name='content' cols='80' rows='20'>$value</textarea></td></tr>";
+    echo "Post Title</th><td><textarea name='content' cols='80' rows='20'>$value</textarea></td></tr>";
     echo "<tr><th>";
     $value=$data['postImage'];
     echo "Post Image</th><td><input type='text' name='image' value='$value'></td></tr>";
