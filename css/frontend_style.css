@@ -52,10 +52,14 @@ body{
   }
   .top-nav-bar .search-container .search-btn:hover{
     background-color: #448AFF;
-    color:white;
-    
+    color:white; 
   }
- 
+  img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+  }
   .row:after {
     content: "";
     display: table;
@@ -70,7 +74,7 @@ body{
     padding: 20px;
     margin-top: 20px;
  }
- img {
+ .main-post-view img {
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -78,4 +82,20 @@ body{
   }
   h4{
       text-align: right;
+  }
+  .search-btn {
+
+    padding: 6px 8px;
+    margin-top: 8px;
+    margin-right: 16px;
+    font-size: 24px;
+    border: 2px solid #448AFF;
+    border-radius: 20px;
+    cursor: pointer;
+    color: #448AFF;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  }
+  .search-btn:hover{
+    background-color: #448AFF;
+    color:white; 
   }

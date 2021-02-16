@@ -31,17 +31,26 @@ function option($value){
     return "<option value='".$value."'>".$value."</option>";
 }
 function postCard($data){
-    $_SESSION["id"]=$data['postID'];
+    $dat=$data['postID'];
     echo "<div class='card'>";
     echo "<h2>".$data['postTitle']."</h2>";
     echo "<h5>by ".$data['postAuthor']."</h5>";
     echo "<h3>".$data['postDescription']."</h3>";
     echo "<img src='../img/".$data['postImage']."'></img>";
-    echo "<a href='../post/postView.php'>[Read More]</a>";
-    echo "<h4>Updated On :".$data['postUpdatedOn'];
+    echo "<a href='../post/postView.php?id=$dat'>[Read More]</a>";
+    echo "<h4>Updated On : ".$data['postUpdatedOn'];
     echo "</h4></div>";
 }
-
+function postView($data){
+    $_SESSION["id"]=$data['postID'];
+    echo "<div class='main-post-view'>";
+    echo "<img src='../img/".$data['postImage']."'></img>";
+    echo "<h1>".$data['postTitle']."</h1>";
+    echo "<h3>by ".$data['postAuthor']."</h4>";
+    echo "<h3>Updated On ".$data['postUpdatedOn']."</h4>";
+    echo "<p>".$data['postContent']."</p>";
+    echo "</div>";
+}
 function returnQuery($a,$b,$c,$d){
     if($a!=""){
         if($b!="author"){
