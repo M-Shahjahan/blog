@@ -28,7 +28,7 @@ Admin Panel
 </head>
 <body>
     <br>
-    <button class="search-btn" onclick="location.href='index.php'" type="button">Log Out</button>
+    <button class="search-btn" onclick="location.href='frontend'" type="button">Log Out</button>
     <button class="search-btn" onclick="location.href='post/addPost.php'" type="button">Add New</button>
  
     <div>
