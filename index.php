@@ -10,6 +10,9 @@
             Welcome
         </title>
     </head>
+    <header>
+        <button class="search-btn" onclick="location.href='frontend'" type="button">Return </button>
+    </header
     <?php
         function login(){
             $conn=openConnection();
@@ -21,9 +24,8 @@
                 if(password_verify($userpassword,$stmt->fetchColumn())){
                     $_SESSION["authenticated"]=true;
                     $_SESSION["author"]=$username;
-                    echo "<script>
-                        window.location.href = 'admin_panel.php';
-                    </script>";
+                    $url='admin_panel.php';
+                    header('Location: '.$url);
                 }
                 else{
                     echo "<script>alert('Entered wrong Password')</script>";

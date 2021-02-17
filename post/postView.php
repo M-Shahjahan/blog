@@ -1,5 +1,5 @@
 <html>
-    <link rel="stylesheet" href="../css/frontend_style.css">
+    <link rel="stylesheet" href="../css/frontend_styl.css">
     <head>
         <title>
             Post Detail
