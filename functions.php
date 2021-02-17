@@ -51,6 +51,17 @@ function postView($data){
     echo "<p>".$data['postContent']."</p>";
     echo "</div>";
 }
+function getSearchImage($value){
+    echo "<td><img class='admin-image' src='../img/$value'/></td>";
+}
+function getSearchData($searchData){
+    echo "<tr><td>".$searchData['postID']."</td>";
+    echo "<td>".$searchData['postTitle']."</td>";
+    echo "<td>".$searchData['postAuthor']."</td>";
+    echo "<td>".$searchData['postCreatedOn']."</td>";
+    echo "<td>".$searchData['postUpdatedOn']."</td>";
+    getSearchImage($searchData['postImage']);
+}
 function returnQuery($a,$b,$c,$d){
     if($a!=""){
         if($b!="author"){

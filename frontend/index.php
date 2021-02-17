@@ -15,10 +15,21 @@ Welcome ! Main Page
 <div class="top-nav-bar">
     <a>Blogger</a>
     <div class="search-container">
-        <form action="../post/seachPost.php" method="post">
+        <form action="../post/searchPost.php" method="post">
         <input type="text" list="search-bar" name="search" placeholder="Search">
         <datalist id="search-bar">
-        <option value="Search">Search</option>
+            <?php
+            $conn=openConnection();
+            $sql = "SELECT * FROM Post";
+            $stmt = $conn->prepare($sql);
+            if($stmt->execute()){
+                $result=$stmt->setFetchMode(PDO::FETCH_ASSOC);
+                foreach ($stmt->fetchAll() as $key => $value) {
+                    echo option($value);
+                }
+            }
+            closeConnection($conn);
+            ?>
         </datalist>
         </input>
         <button class="search-btn" onclick="location.href='../index.php'" type="button">Login</button>

@@ -17,7 +17,7 @@ function closeConnection($conn){
 function getImage($value){
     echo "<td><img class='admin-image' src='img/$value'/></td>";
 } 
-function getData($data){
+function getData($data,$img){
     echo "<tr><td>".$data['postID']."</td>";
     echo "<td>".$data['postTitle']."</td>";
     echo "<td>".$data['postAuthor']."</td>";
